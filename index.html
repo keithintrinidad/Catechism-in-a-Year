@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<!--
+  Catechism in a Year — a 365-day reading plan through the Catechism of the Catholic Church
+
+  Built by Claude, an AI model created by Anthropic, under the guidance
+  of Keith Francis (GitHub: keithintrinidad). Keith directed the app's
+  design, content, and features through conversation with Claude, but
+  did not write this code or the app's study notes directly.
+
+  Licensed under CC BY-NC-SA 4.0 — free to share and adapt, never for
+  sale; any derivative must remain free and carry this same notice and
+  license. Full terms: LICENSE.md in this repository, or
+  https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Catechism in a Year</title>
+<meta name="description" content="A 365-day reading plan through the Catechism of the Catholic Church, with study notes, Scripture links and a personal journal.">
+<meta name="theme-color" content="#F6F0E6">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Catechism">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preload" href="fonts/eb-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/eb-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"EB Garamond";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/eb-garamond-latin-400-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"EB Garamond";font-style:italic;font-weight:400;font-display:swap;src:url("fonts/eb-garamond-latin-400-italic.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"EB Garamond";font-style:normal;font-weight:500;font-display:swap;src:url("fonts/eb-garamond-latin-500-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"EB Garamond";font-style:italic;font-weight:500;font-display:swap;src:url("fonts/eb-garamond-latin-500-italic.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"EB Garamond";font-style:normal;font-weight:600;font-display:swap;src:url("fonts/eb-garamond-latin-600-normal.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"EB Garamond";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/eb-garamond-latin-ext-400-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"EB Garamond";font-style:italic;font-weight:400;font-display:swap;src:url("fonts/eb-garamond-latin-ext-400-italic.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"EB Garamond";font-style:normal;font-weight:500;font-display:swap;src:url("fonts/eb-garamond-latin-ext-500-normal.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"EB Garamond";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/eb-garamond-greek-400-normal.woff2") format("woff2");unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF}
+@font-face{font-family:"EB Garamond";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/eb-garamond-greek-ext-400-normal.woff2") format("woff2");unicode-range:U+1F00-1FFF}
+@font-face{font-family:"Frank Ruhl Libre";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/frank-ruhl-libre-hebrew-400-normal.woff2") format("woff2");unicode-range:U+0307-0308,U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F}
+:root{
+  --bg:#F6F0E6; --surface:#FCF9F4; --ink:#262220; --muted:#6B6058;
+  --rubric:#7A2E3B; --gilt:#8E6E2E; --line:#E2D6C4; --soft:#EFE5D5;
+  --serif:"EB Garamond", Garamond, "Iowan Old Style", Georgia, serif;
+  --hebrew:"Frank Ruhl Libre", "SBL Hebrew", "Times New Roman", serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light dark;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#1C1517; --surface:#251C1F; --ink:#EFE6DC; --muted:#B3A597;
+    --rubric:#D68A96; --gilt:#D6B871; --line:#3D3034; --soft:#2F2428;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1C1517; --surface:#251C1F; --ink:#EFE6DC; --muted:#B3A597;
+  --rubric:#D68A96; --gilt:#D6B871; --line:#3D3034; --soft:#2F2428;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:var(--serif);font-size:1.18rem;line-height:1.55}
+main{max-width:36rem;margin:0 auto;padding:1.25rem 1.25rem 7rem}
+h1,h2,h3{font-weight:500;line-height:1.2;margin:0}
+h1{font-size:2.1rem;letter-spacing:.01em}
+h2{font-size:1.65rem;margin:1.2rem 0 .4rem}
+h3{font-size:1.25rem}
+p{margin:.6rem 0}
+a{color:var(--rubric);text-underline-offset:3px;text-decoration-color:var(--gilt)}
+.he{font-family:var(--hebrew);direction:rtl;unicode-bidi:isolate}
+.lede{color:var(--muted);font-style:italic}
+.kick{color:var(--rubric);font-variant:small-caps;letter-spacing:.03em;font-size:1.02rem;margin:0}
+.meta{color:var(--muted);font-size:.95rem}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gilt);outline-offset:3px;border-radius:2px}
+
+/* Masthead */
+.mast{padding:.6rem 0 1.1rem;border-bottom:1px solid var(--line);margin-bottom:.4rem}
+.mast-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
+.mast p{margin:.45rem 0 0;color:var(--muted);font-size:1.02rem}
+.mast-btns{display:flex;gap:.45rem;align-items:center;flex-shrink:0;margin-top:.35rem}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:2.2rem;height:2.2rem;border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:999px;cursor:pointer;padding:0}
+.theme-btn{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:999px;padding:.3rem .75rem .3rem .5rem;cursor:pointer;font-size:.95rem}
+
+section[data-tab]{display:none}
+section[data-tab].on{display:block}
+
+/* Buttons */
+.btn{border:1px solid var(--line);background:var(--surface);padding:.5rem 1.1rem;border-radius:999px;cursor:pointer;font-size:1.02rem;text-decoration:none;color:var(--ink);display:inline-block}
+.btn.primary{background:var(--rubric);border-color:var(--rubric);color:var(--bg)}
+.btn.done{background:transparent;border-color:var(--gilt);color:var(--gilt)}
+.btn[disabled]{opacity:.45;cursor:default}
+.row{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin:.6rem 0}
+.row.split{justify-content:space-between}
+.linkbtn{border:0;background:none;color:var(--muted);text-decoration:underline;text-decoration-color:var(--gilt);text-underline-offset:3px;cursor:pointer;font-size:1rem;padding:.3rem}
+
+/* Day view */
+.daynav{display:flex;align-items:center;justify-content:space-between;gap:.5rem;margin:.8rem 0 .2rem}
+.daynav .mid{text-align:center;flex:1}
+.daynav .mid .num{font-size:1.05rem;color:var(--rubric);font-variant:small-caps;letter-spacing:.04em}
+.daynav .mid .ph{display:block;color:var(--muted);font-size:.92rem}
+.sched{background:var(--soft);border-radius:8px;padding:.55rem .8rem;margin:.6rem 0;font-size:1rem}
+.sched button{margin-left:.2rem}
+.daytitle{font-size:1.8rem;margin:.7rem 0 .2rem}
+.ccc{color:var(--muted);font-size:1.02rem}
+.readstate{color:var(--gilt);font-size:.98rem}
+.block{margin:1.1rem 0}
+.label{display:block;color:var(--rubric);font-variant:small-caps;letter-spacing:.04em;font-size:1rem;margin-bottom:.15rem}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.3rem}
+.chip{display:inline-flex;align-items:center;gap:.3rem;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:.25rem .75rem;font-size:1rem;color:var(--ink);text-decoration:none}
+.chip:hover{border-color:var(--gilt)}
+.chip svg{width:.85rem;height:.85rem;color:var(--muted)}
+.chip.plain{border-style:dashed;color:var(--muted)}
+.chipgroup{display:inline-flex;flex-wrap:wrap;gap:.25rem;align-items:center}
+.reflect{border-left:2px solid var(--gilt);padding:.15rem 0 .15rem .9rem;margin:1.2rem 0;font-style:italic}
+.notesbox{margin:1.4rem 0 .6rem}
+textarea.field{width:100%;min-height:9rem;resize:vertical;font:inherit;font-size:1.08rem;line-height:1.5;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:.65rem .8rem}
+.field{font:inherit;font-size:1.05rem;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:.5rem .7rem}
+.saved{color:var(--muted);font-size:.9rem;min-height:1.3em}
+.donebar{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin:1rem 0 .4rem;padding-top:1rem;border-top:1px solid var(--line)}
+.revlist{list-style:none;padding:0;margin:.4rem 0}
+.revlist li{border-bottom:1px solid var(--line)}
+.revlist button{display:flex;gap:.6rem;width:100%;text-align:left;background:none;border:0;padding:.55rem 0;cursor:pointer;font-size:1.05rem}
+.tick{color:var(--gilt);min-width:1.1rem}
+.tick.off{color:var(--line)}
+
+/* Plan */
+.progress{margin:.8rem 0 1rem}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin:.4rem 0}
+.bar span{display:block;height:100%;background:var(--gilt)}
+details.phase{border-bottom:1px solid var(--line)}
+details.phase>summary{list-style:none;cursor:pointer;padding:.8rem 0;display:flex;gap:.8rem;align-items:baseline}
+details.phase>summary::-webkit-details-marker{display:none}
+details.phase>summary .n{color:var(--rubric);min-width:1.4rem}
+details.phase>summary .t{flex:1}
+details.phase>summary .c{color:var(--muted);font-size:.92rem;white-space:nowrap}
+details.phase>summary::after{content:"+";color:var(--muted);margin-left:.3rem}
+details.phase[open]>summary::after{content:"−"}
+.daylist{list-style:none;padding:0;margin:0 0 .8rem}
+.daylist button{display:flex;gap:.6rem;align-items:baseline;width:100%;text-align:left;background:none;border:0;border-top:1px solid var(--line);padding:.5rem 0;cursor:pointer;font-size:1.02rem}
+.daylist .dn{color:var(--muted);min-width:2.2rem;font-variant-numeric:oldstyle-nums}
+.daylist .dt{flex:1}
+.daylist .dc{color:var(--muted);font-size:.88rem;white-space:nowrap}
+.daylist .rv .dt{font-style:italic;color:var(--rubric)}
+.daylist .cur{background:var(--soft)}
+.pen{color:var(--gilt);font-size:.85rem}
+
+/* Journal */
+.entry{padding:1rem 0;border-bottom:1px solid var(--line)}
+.entry .eh{display:flex;justify-content:space-between;gap:.6rem;align-items:baseline}
+.entry .et{white-space:pre-wrap;margin:.4rem 0 0}
+.empty{color:var(--muted);font-style:italic}
+.status{color:var(--muted);font-size:.95rem;min-height:1.4em}
+
+/* Settings */
+.set{padding:1rem 0;border-bottom:1px solid var(--line)}
+.set h3{color:var(--rubric);margin-bottom:.3rem}
+.set label.opt{display:flex;gap:.6rem;align-items:flex-start;margin:.45rem 0;cursor:pointer}
+.set label.opt input{margin-top:.45rem}
+.small{font-size:.95rem;color:var(--muted)}
+
+/* About */
+.foot{text-align:center;margin:3rem 0 0;padding-top:1.2rem;border-top:1px solid var(--line)}
+.about{position:fixed;inset:0;z-index:20;background:var(--bg);overflow-y:auto;-webkit-overflow-scrolling:touch;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.about[hidden]{display:none}
+.about-bar{position:sticky;top:0;background:var(--bg);padding:.7rem 1rem;border-bottom:1px solid var(--line)}
+.about-body{max-width:36rem;margin:0 auto;padding:1.4rem 1.25rem 3rem}
+.about h2{margin:.2rem 0 1rem;font-size:1.9rem}
+.about h3{color:var(--gilt);margin:2rem 0 .4rem;font-size:1.35rem}
+.about .terms{list-style:none;padding:0;margin:.4rem 0 1rem}
+.about .terms li{padding:.6rem 0;border-bottom:1px solid var(--line)}
+.about .terms li:first-child{border-top:1px solid var(--line)}
+.about .terms b{color:var(--gilt);font-weight:600}
+.about .seal{text-align:center;color:var(--muted);font-style:italic;margin-top:2rem;font-size:.98rem}
+.about .seal+.seal{margin-top:.3rem;font-style:normal;color:var(--gilt)}
+
+/* Tabs */
+nav.tabs{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px);z-index:10}
+nav.tabs ul{list-style:none;margin:0 auto;padding:0;display:flex;max-width:36rem}
+nav.tabs li{flex:1}
+nav.tabs a{display:block;text-align:center;padding:.65rem .2rem .7rem;color:var(--muted);text-decoration:none;font-size:1rem}
+nav.tabs a[aria-current="page"]{color:var(--ink)}
+nav.tabs a[aria-current="page"]::before{content:"";display:block;width:1.4rem;height:2px;background:var(--rubric);margin:-.65rem auto .55rem}
+nav.tabs a:not([aria-current="page"])::before{content:"";display:block;height:2px;margin:-.65rem auto .55rem}
+@media (prefers-reduced-motion:no-preference){.btn,.chip{transition:border-color .15s,background .15s}}
+</style>
+</head>
+<body>
+<main>
+
+<header class="mast">
+  <div class="mast-top">
+    <h1>Catechism in a Year</h1>
+    <div class="mast-btns">
+    <button class="icon-btn" id="infoBtn" aria-label="About this app">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6"/><circle cx="12" cy="7.6" r=".6" fill="currentColor"/></svg>
+    </button>
+    <button class="theme-btn" id="themeBtn" aria-label="Appearance: follows device">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path id="themeFill" d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg>
+      <span id="themeLabel">Auto</span>
+    </button>
+    </div>
+  </div>
+  <p>A daily reading through the Catechism of the Catholic Church, with notes, Scripture and space for your own thoughts.</p>
+</header>
+
+<!-- ============ TODAY ============ -->
+<section data-tab="today" class="on" aria-label="Today's reading">
+  <div id="dayView"></div>
+</section>
+
+<!-- ============ PLAN ============ -->
+<section data-tab="plan" aria-labelledby="h-plan">
+  <h2 id="h-plan">The plan</h2>
+  <div class="progress" id="progress"></div>
+  <div id="phaseList"></div>
+</section>
+
+<!-- ============ JOURNAL ============ -->
+<section data-tab="journal" aria-labelledby="h-journal">
+  <h2 id="h-journal">Journal</h2>
+  <p class="lede">Everything you've written, day by day.</p>
+  <input class="field" id="jSearch" type="search" placeholder="Search your notes" aria-label="Search your notes" style="width:100%">
+  <div id="journalList"></div>
+  <div class="row">
+    <button class="btn" id="copyAll">Copy all as text</button>
+    <button class="btn" id="saveTxt">Save as a text file</button>
+  </div>
+  <p class="status" id="jStatus" role="status"></p>
+</section>
+
+<!-- ============ SETTINGS ============ -->
+<section data-tab="settings" aria-labelledby="h-settings">
+  <h2 id="h-settings">Settings</h2>
+
+  <div class="set">
+    <h3>Reading schedule</h3>
+    <p class="small">Leave this empty to go at your own pace: Today always opens the next day you haven't read. Set a start date to follow the calendar: Today opens the day scheduled for today and tells you if you're behind.</p>
+    <div class="row">
+      <input class="field" type="date" id="startDate" aria-label="Start date (Day 1)">
+      <button class="btn" id="startToday">Start today</button>
+    </div>
+    <div class="row">
+      <button class="linkbtn" id="startAdvent">Line up with Advent</button>
+      <button class="linkbtn" id="startClear">Go at my own pace</button>
+    </div>
+    <p class="small" id="startInfo"></p>
+  </div>
+
+  <div class="set">
+    <h3>Bible translation</h3>
+    <p class="small">Scripture links open in the YouVersion Bible app if it's installed, or on bible.com. You can switch translations there at any time; this sets the one each link opens first.</p>
+    <select class="field" id="bibleSel" aria-label="Bible translation" style="width:100%"></select>
+    <div class="row" id="customRow" hidden>
+      <input class="field" id="bibleCustom" inputmode="numeric" placeholder="Version number" aria-label="YouVersion version number" style="width:9rem">
+      <span class="small">The number after <i>/bible/</i> in a bible.com link.</span>
+    </div>
+  </div>
+
+  <div class="set">
+    <h3>The Catechism text</h3>
+    <label class="opt"><input type="radio" name="ccc" value="web" checked> <span>Link to the Vatican's online text<br><span class="small">Each link opens the section of the Catechism that contains the day's paragraphs. Scroll to the paragraph numbers shown on the link.</span></span></label>
+    <label class="opt"><input type="radio" name="ccc" value="print"> <span>I'll read from my printed copy<br><span class="small">Hides the links and simply shows the paragraph numbers.</span></span></label>
+  </div>
+
+  <div class="set">
+    <h3>Add the plan to your calendar</h3>
+    <p class="small">Creates a calendar file with one all-day entry per day, starting on the date you choose, including each day's notes. Import it into Google Calendar (on a computer), Apple Calendar or Outlook.</p>
+    <div class="row">
+      <input class="field" type="date" id="icsDate" aria-label="Calendar start date">
+      <button class="btn" id="icsBtn">Create calendar file</button>
+    </div>
+    <p class="status" id="icsStatus" role="status"></p>
+  </div>
+
+  <div class="set">
+    <h3>Your progress and notes</h3>
+    <p class="small">Everything is stored on this device only, in the browser. Nothing is sent anywhere. Keep a backup now and then, especially before changing phones or clearing your browser.</p>
+    <div class="row">
+      <button class="btn" id="backupBtn">Download a backup</button>
+      <label class="btn" for="restoreIn" style="cursor:pointer">Restore a backup</label>
+      <input type="file" id="restoreIn" accept="application/json,.json" hidden>
+    </div>
+    <div class="row"><button class="linkbtn" id="resetBtn">Erase all progress and notes</button></div>
+    <p class="status" id="dataStatus" role="status"></p>
+  </div>
+
+  <div class="foot"><button class="linkbtn" id="footInfo">About this app, credits and licence</button></div>
+</section>
+
+</main>
+
+<section class="about" id="about" role="dialog" aria-modal="true" aria-labelledby="aboutTitle" hidden>
+  <div class="about-bar">
+    <button class="icon-btn" id="aboutClose" aria-label="Close About">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+    </button>
+  </div>
+  <div class="about-body" id="aboutBody">
+    <p class="kick">Catechism in a Year</p>
+    <h2 id="aboutTitle">About this app</h2>
+    <p>A 365-day reading plan through the Catechism of the Catholic Church. Each day gives the paragraphs to read, a short study note, a word from the original languages, the key Scripture passages, a note comparing Catholic teaching with Protestant and Anglican views, and a question for reflection. You can mark each day as read and keep your own notes. Once installed, it works without an internet connection; the Catechism and Bible links need one.</p>
+
+    <h3>The order of readings</h3>
+    <p>The plan does not read the Catechism front to back. It begins with what is most distinctive for someone coming from another Christian tradition: how revelation is handed on, the Church's teaching authority, and the Church herself. It then moves through Christ, the Holy Spirit, grace and justification, conscience and sin, and the sacraments, before the creation, the moral life, the Ten Commandments and prayer. Every 30th day is a review day.</p>
+
+    <h3>How it was made</h3>
+    <p>This app was built by <b>Claude</b>, an AI model created by <b>Anthropic</b>, under the guidance of <b>Keith Francis</b> (GitHub: <a href="https://github.com/keithintrinidad" target="_blank" rel="noopener">keithintrinidad</a>).</p>
+    <p>The reading plan and all of the study notes were written by Claude, drawing on Keith's conversations with it about the Catechism, Scripture and its Hebrew and Greek background, and his journey through OCIA. No text of the Catechism is reproduced. Keith directed the app's content, features and design through conversation with Claude, but did not write the code directly.</p>
+    <p>It is a companion to the <b>Rosary Helper</b> (<a href="https://keithintrinidad.github.io/Rosary-Helper/" target="_blank" rel="noopener">open the app</a> · <a href="https://github.com/keithintrinidad/Rosary-Helper" target="_blank" rel="noopener">source code</a>), <b>Prayers for Catholics</b> (<a href="https://keithintrinidad.github.io/Catholic-Prayers/" target="_blank" rel="noopener">open the app</a> · <a href="https://github.com/keithintrinidad/Catholic-Prayers" target="_blank" rel="noopener">source code</a>) and <b>Bread of the Presence</b> (<a href="https://keithintrinidad.github.io/Bread-of-the-Presence/" target="_blank" rel="noopener">open the app</a> · <a href="https://github.com/keithintrinidad/Bread-of-the-Presence" target="_blank" rel="noopener">source code</a>), made the same way.</p>
+
+    <h3>Licence</h3>
+    <p>This app, including its code, design, reading plan, study notes and arrangement of content, is licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Licence</a> (CC BY-NC-SA 4.0).</p>
+    <p>You are free to share it and to adapt it, on these terms:</p>
+    <ul class="terms">
+      <li><b>Attribution.</b> Give appropriate credit to Claude (Anthropic) as the builder and Keith Francis as the person who directed its creation, link to the licence, and say if you made changes.</li>
+      <li><b>NonCommercial.</b> It may never be sold, or bundled into anything that is sold.</li>
+      <li><b>ShareAlike.</b> Any version built from it must be shared under this same licence, so every copy stays free.</li>
+    </ul>
+    <p class="small">This summary is not a substitute for the licence itself. The Catechism of the Catholic Church is © Libreria Editrice Vaticana; this app only links to the text published on the Vatican's website and gives paragraph numbers. Scripture links open YouVersion (bible.com), whose translations belong to their publishers. The fonts, EB Garamond and Frank Ruhl Libre, carry their own SIL Open Font License.</p>
+
+    <h3>Source code</h3>
+    <p>The full source, licence and README are at <a href="https://github.com/keithintrinidad/Catechism-in-a-Year" target="_blank" rel="noopener">github.com/keithintrinidad/Catechism-in-a-Year</a>.</p>
+
+    <p class="seal">© 2026 Keith Francis · CC BY-NC-SA 4.0</p>
+    <p class="seal" aria-hidden="true">✠</p>
+  </div>
+</section>
+
+<nav class="tabs" aria-label="Sections">
+<ul>
+  <li><a href="#today" data-go="today" aria-current="page">Today</a></li>
+  <li><a href="#plan" data-go="plan">Plan</a></li>
+  <li><a href="#journal" data-go="journal">Journal</a></li>
+  <li><a href="#settings" data-go="settings">Settings</a></li>
+</ul>
+</nav>
+
+<script src="data/plan.js"></script>
+<script>
+(function(){
+"use strict";
+const $=id=>document.getElementById(id);
+const esc=t=>String(t).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+/* ---------- Theme: auto / light / dark ---------- */
+const TKEY="catechism-in-a-year-theme", modes=["auto","light","dark"];
+const names={auto:"Auto",light:"Light",dark:"Dark"};
+const fills={auto:"M12 3.5a8.5 8.5 0 0 1 0 17z",light:"",dark:"M12 3.5a8.5 8.5 0 1 1 0 17a8.5 8.5 0 1 1 0-17z"};
+const metaTheme=document.querySelector('meta[name="theme-color"]');
+const mq=window.matchMedia?matchMedia("(prefers-color-scheme: dark)"):null;
+let mode="auto";
+try{const m=localStorage.getItem(TKEY); if(modes.includes(m)) mode=m;}catch(_){}
+function applyTheme(){
+  const root=document.documentElement;
+  if(mode==="auto") root.removeAttribute("data-theme"); else root.setAttribute("data-theme",mode);
+  const dark=mode==="dark"||(mode==="auto"&&mq&&mq.matches);
+  if(metaTheme) metaTheme.setAttribute("content",dark?"#1C1517":"#F6F0E6");
+  $("themeLabel").textContent=names[mode];
+  $("themeFill").setAttribute("d",fills[mode]);
+  $("themeBtn").setAttribute("aria-label","Appearance: "+(mode==="auto"?"follows device":names[mode].toLowerCase())+". Tap to change.");
+}
+$("themeBtn").addEventListener("click",()=>{mode=modes[(modes.indexOf(mode)+1)%3];try{localStorage.setItem(TKEY,mode);}catch(_){}applyTheme();});
+if(mq){try{mq.addEventListener("change",applyTheme);}catch(_){}}
+applyTheme();
+
+/* ---------- Stored data ---------- */
+const KEY="catechism-in-a-year-v1";
+let data={done:{},notes:{},settings:{start:"",bible:"2015",bibleCustom:"",ccc:"web"},last:1};
+try{const raw=localStorage.getItem(KEY); if(raw){const d=JSON.parse(raw); data={done:d.done||{},notes:d.notes||{},settings:Object.assign(data.settings,d.settings||{}),last:d.last||1};}}catch(_){}
+let saveWarned=false;
+function save(){try{localStorage.setItem(KEY,JSON.stringify(data));}catch(_){if(!saveWarned){saveWarned=true;alert("Could not save on this device. Download a backup from Settings to keep your notes.");}}}
+
+/* ---------- Dates ---------- */
+const pad=n=>String(n).padStart(2,"0");
+const ymd=d=>d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
+const parse=s=>{const [y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d);};
+const addDays=(d,n)=>{const x=new Date(d.getFullYear(),d.getMonth(),d.getDate());x.setDate(x.getDate()+n);return x;};
+const today=()=>{const t=new Date();return new Date(t.getFullYear(),t.getMonth(),t.getDate());};
+const fmt=new Intl.DateTimeFormat(undefined,{weekday:"short",month:"short",day:"numeric",year:"numeric"});
+const fmtS=new Intl.DateTimeFormat(undefined,{month:"short",day:"numeric",year:"numeric"});
+const nice=s=>fmtS.format(parse(s));
+function scheduledDay(){
+  if(!data.settings.start) return null;
+  const diff=Math.round((today()-parse(data.settings.start))/864e5);
+  return diff+1;
+}
+function adventStart(year){const dec3=new Date(year,11,3);return addDays(dec3,-dec3.getDay());}
+function adventAligned(){const t=today();for(let y=t.getFullYear();y<t.getFullYear()+3;y++){const a=adventStart(y),s=addDays(a,-48);if(s>=t)return{start:s,advent:a};}}
+
+/* ---------- Links ---------- */
+const VERSIONS=[["2015","NRSV-CI · New Revised Standard Version Catholic Interconfessional"],["3548","RSVCI · Revised Standard Version (Catholic Interconfessional)"],["2017","RSV-C · Revised Standard Version, 1952"],["463","NABRE · New American Bible Revised Edition"],["59","ESV · English Standard Version"],["1","KJV · King James Version"],["111","NIV · New International Version"],["custom","Other (enter the version number)"]];
+function bibleId(){const s=data.settings;return s.bible==="custom"?(String(s.bibleCustom||"").replace(/\D/g,"")||"2015"):s.bible;}
+const bibleUrl=ref=>"https://www.bible.com/bible/"+bibleId()+"/"+ref;
+const vatUrl=code=>"https://www.vatican.va/archive/ENG0015/__"+code+".HTM";
+const ext='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>';
+const heb=t=>esc(t).replace(/[\u0590-\u05FF][\u0590-\u05FF\s\u05BE]*[\u0590-\u05FF]|[\u0590-\u05FF]/g,m=>'<span class="he" lang="he">'+m+'</span>');
+
+/* ---------- Day view ---------- */
+let view=1;
+function phaseName(p){return "Phase "+p.ph+" · "+PHASES[p.ph-1];}
+function firstUnread(){for(let n=1;n<=365;n++) if(!data.done[n]) return n; return 365;}
+function defaultDay(){
+  const s=scheduledDay();
+  if(s!==null) return Math.min(365,Math.max(1,s));
+  return firstUnread();
+}
+let noteTimer=null;
+function renderDay(n){
+  view=Math.min(365,Math.max(1,n)); data.last=view; save();
+  const p=PLAN[view-1], done=data.done[view];
+  const s=scheduledDay();
+  let sched="";
+  if(s!==null){
+    if(s<1) sched=`<div class="sched">Your plan starts on ${esc(nice(data.settings.start))}. You can read ahead in the meantime.</div>`;
+    else if(s>365) sched=`<div class="sched">Your scheduled year is complete.${firstUnread()<365||!data.done[365]?` <button class="linkbtn" data-open="${firstUnread()}">Next unread: Day ${firstUnread()}</button>`:""}</div>`;
+    else{
+      let behind=0; for(let k=1;k<s;k++) if(!data.done[k]) behind++;
+      const where=view===s?"This is today's reading.":`Today's reading is <button class="linkbtn" data-open="${s}">Day ${s}</button>.`;
+      const fu=firstUnread();
+      sched=`<div class="sched">${where}${behind?` ${behind} earlier ${behind===1?"day is":"days are"} unread. <button class="linkbtn" data-open="${fu}">Go to Day ${fu}</button>`:" You're on track."}</div>`;
+    }
+  }
+  const nav=`<div class="daynav">
+    <button class="icon-btn" id="prevDay" aria-label="Previous day" ${view===1?"disabled":""}><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+    <div class="mid"><span class="num">Day ${view} of 365</span>${p.r?'<span class="ph">Review &amp; catch-up</span>':`<span class="ph">${esc(phaseName(p))}</span>`}</div>
+    <button class="icon-btn" id="nextDay" aria-label="Next day" ${view===365?"disabled":""}><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+  </div>`;
+  let body;
+  if(p.r){
+    body=`<h2 class="daytitle">Review &amp; catch-up</h2>
+      <p>No new reading today. Catch up on any missed days, or reread the one that challenged you most. Since the last review:</p>
+      <ul class="revlist">${p.items.map(([k,t])=>`<li><button data-open="${k}"><span class="tick ${data.done[k]?"":"off"}">${data.done[k]?"✓":"○"}</span><span>Day ${k}: ${esc(t)}</span></button></li>`).join("")}</ul>
+      <div class="reflect">${esc(p.q)}</div>`;
+  }else{
+    const print=data.settings.ccc==="print";
+    const ccc=print?`<p class="meta">Read CCC ${esc(p.c)} in your printed Catechism.</p>`
+      :`<div class="chips">${p.v.map(([a,b,code])=>`<a class="chip" href="${vatUrl(code)}" target="_blank" rel="noopener">CCC ${a===b?a:a+"–"+b} ${ext}</a>`).join("")}</div>
+        ${p.v.length>1?`<p class="meta">The day's paragraphs span ${p.v.length} pages on the Vatican site.</p>`:""}`;
+    const scr=p.sc.map(g=>`<span class="chipgroup">${g.map(([lab,ref])=>ref?`<a class="chip" href="${bibleUrl(ref)}" target="_blank" rel="noopener">${esc(lab)} ${ext}</a>`:`<span class="chip plain">${esc(lab)}</span>`).join("")}</span>`).join("");
+    body=`<h2 class="daytitle">${esc(p.t)}</h2>
+      <div class="ccc">CCC ${esc(p.c)}</div>
+      <div class="block"><span class="label">Read the Catechism</span>${ccc}</div>
+      <div class="block"><span class="label">Key idea</span>${esc(p.k)}</div>
+      <div class="block"><span class="label">Word study</span>${heb(p.w)}</div>
+      <div class="block"><span class="label">Scripture</span><div class="chips">${scr}</div></div>
+      <div class="block"><span class="label">Ecumenical note</span>${esc(p.ec)}</div>
+      <div class="reflect">${esc(p.f)}</div>`;
+  }
+  const note=data.notes[view];
+  const notes=`<div class="notesbox"><label class="label" for="noteIn">My notes</label>
+    <textarea class="field" id="noteIn" placeholder="Your thoughts, questions, a line to remember…">${esc(note?note.t:"")}</textarea>
+    <div class="saved" id="savedMsg">${note&&note.t?"Saved "+esc(nice(note.u)):""}</div></div>`;
+  const doneBar=`<div class="donebar">
+    <button class="btn ${done?"done":"primary"}" id="doneBtn">${done?"✓ Read":"Mark as read"}</button>
+    ${done?`<span class="readstate">on ${esc(nice(done))}</span>`:""}
+    ${view<365?`<button class="linkbtn" data-open="${view+1}" style="margin-left:auto">Day ${view+1} ›</button>`:""}
+  </div>`;
+  $("dayView").innerHTML=nav+sched+body+notes+doneBar;
+  $("prevDay").onclick=()=>{renderDay(view-1);scrollTo(0,0);};
+  $("nextDay").onclick=()=>{renderDay(view+1);scrollTo(0,0);};
+  $("doneBtn").onclick=()=>{
+    if(data.done[view]) delete data.done[view]; else data.done[view]=ymd(today());
+    save(); renderDay(view);
+  };
+  const ta=$("noteIn");
+  ta.addEventListener("input",()=>{
+    clearTimeout(noteTimer);
+    $("savedMsg").textContent="…";
+    const n=view;
+    noteTimer=setTimeout(()=>{
+      const v=ta.value;
+      if(v.trim()) data.notes[n]={t:v,u:ymd(today())}; else delete data.notes[n];
+      save(); if(view===n) $("savedMsg").textContent=v.trim()?"Saved":"";
+    },500);
+  });
+  try{history.replaceState(null,"","#day-"+view);}catch(_){}
+}
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-open]"); if(!b) return;
+  e.preventDefault(); openDay(+b.dataset.open);
+});
+function openDay(n){show("today",false);renderDay(n);scrollTo(0,0);}
+
+/* ---------- Plan ---------- */
+function renderPlan(){
+  const read=Object.keys(data.done).length, pct=Math.round(read/365*100);
+  const fu=firstUnread();
+  $("progress").innerHTML=`<div class="row split"><span>${read} of 365 days read</span><span class="meta">${pct}%</span></div>
+    <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="365" aria-valuenow="${read}"><span style="width:${pct}%"></span></div>
+    <div class="row"><button class="btn primary" data-open="${defaultDay()}">${data.settings.start?"Today's reading":"Continue"}: Day ${defaultDay()}</button>${fu!==defaultDay()&&!data.done[fu]?`<button class="linkbtn" data-open="${fu}">First unread: Day ${fu}</button>`:""}</div>`;
+  const groups={}; let curPh=1;
+  PLAN.forEach(p=>{ if(!p.r) curPh=p.ph; (groups[curPh]=groups[curPh]||[]).push(p); });
+  const viewPh=(()=>{for(let k=view-1;k>=0;k--) if(!PLAN[k].r) return PLAN[k].ph; return 1;})();
+  const start=data.settings.start?parse(data.settings.start):null;
+  $("phaseList").innerHTML=PHASES.map((name,i)=>{
+    const ph=i+1, items=groups[ph], dn=items.filter(p=>data.done[p.n]).length;
+    return `<details class="phase" ${ph===viewPh?"open":""}><summary><span class="n">${ph}</span><span class="t">${esc(name)}</span><span class="c">${dn}/${items.length}</span></summary>
+      <ul class="daylist">${items.map(p=>`<li class="${p.r?"rv":""}"><button data-open="${p.n}" class="${p.n===view?"cur":""}">
+        <span class="tick ${data.done[p.n]?"":"off"}">${data.done[p.n]?"✓":"○"}</span><span class="dn">${p.n}</span>
+        <span class="dt">${p.r?"Review &amp; catch-up":esc(p.t)}${data.notes[p.n]?' <span class="pen" title="Has notes">✎</span>':""}</span>
+        <span class="dc">${start?esc(fmtS.format(addDays(start,p.n-1))):(p.r?"":"CCC "+esc(p.c))}</span></button></li>`).join("")}</ul></details>`;
+  }).join("");
+}
+
+/* ---------- Journal ---------- */
+function journalText(){
+  return Object.keys(data.notes).map(Number).sort((a,b)=>a-b).map(n=>{
+    const p=PLAN[n-1], t=p.r?"Review & catch-up":p.t+" (CCC "+p.c+")";
+    return `Day ${n}: ${t}\n${data.done[n]?"Read "+data.done[n]+". ":""}Notes updated ${data.notes[n].u}.\n\n${data.notes[n].t.trim()}`;
+  }).join("\n\n— — —\n\n");
+}
+function renderJournal(){
+  const q=$("jSearch").value.trim().toLowerCase();
+  const ns=Object.keys(data.notes).map(Number).sort((a,b)=>a-b)
+    .filter(n=>!q||data.notes[n].t.toLowerCase().includes(q)||(PLAN[n-1].t||"").toLowerCase().includes(q));
+  $("journalList").innerHTML=ns.length?ns.map(n=>{const p=PLAN[n-1];return `<div class="entry"><div class="eh">
+      <button class="linkbtn" data-open="${n}" style="padding:0;font-size:1.1rem;color:var(--ink);text-align:left">Day ${n}: ${p.r?"Review &amp; catch-up":esc(p.t)}</button>
+      <span class="meta">${esc(nice(data.notes[n].u))}</span></div><p class="et">${esc(data.notes[n].t)}</p></div>`;}).join("")
+    :`<p class="empty">${q?"No notes match your search.":"No notes yet. Write in the My notes box on any day and it will appear here."}</p>`;
+}
+$("jSearch").addEventListener("input",renderJournal);
+$("copyAll").addEventListener("click",async()=>{
+  const t=journalText(); if(!t){$("jStatus").textContent="There are no notes to copy yet.";return;}
+  try{await navigator.clipboard.writeText(t);$("jStatus").textContent="Copied. Paste it anywhere to keep a copy.";}
+  catch(_){$("jStatus").textContent="Copying isn't allowed here. Use Save as a text file instead.";}
+});
+function download(name,text,type){
+  const blob=new Blob([text],{type}); const url=URL.createObjectURL(blob);
+  const a=document.createElement("a"); a.href=url; a.download=name; document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),4000);
+}
+$("saveTxt").addEventListener("click",()=>{
+  const t=journalText(); if(!t){$("jStatus").textContent="There are no notes to save yet.";return;}
+  download(`Catechism-journal-${ymd(today())}.txt`,t,"text/plain;charset=utf-8"); $("jStatus").textContent="Text file created.";
+});
+
+/* ---------- Settings ---------- */
+function startInfo(){
+  const s=data.settings.start;
+  $("startDate").value=s||"";
+  $("startInfo").textContent=s?`Day 1 is ${fmt.format(parse(s))}; Day 365 is ${fmt.format(addDays(parse(s),364))}.`:"No start date: you're going at your own pace.";
+}
+function setStart(v){data.settings.start=v;save();startInfo();}
+$("startDate").addEventListener("change",e=>setStart(e.target.value));
+$("startToday").addEventListener("click",()=>setStart(ymd(today())));
+$("startClear").addEventListener("click",()=>setStart(""));
+$("startAdvent").addEventListener("click",()=>{const a=adventAligned();setStart(ymd(a.start));
+  $("startInfo").textContent+=` The readings on the Last Things begin on the First Sunday of Advent (${fmtS.format(a.advent)}).`;});
+$("bibleSel").innerHTML=VERSIONS.map(([v,l])=>`<option value="${v}">${esc(l)}</option>`).join("");
+$("bibleSel").value=data.settings.bible; $("bibleCustom").value=data.settings.bibleCustom||"";
+$("customRow").hidden=data.settings.bible!=="custom";
+$("bibleSel").addEventListener("change",e=>{data.settings.bible=e.target.value;$("customRow").hidden=e.target.value!=="custom";save();});
+$("bibleCustom").addEventListener("input",e=>{data.settings.bibleCustom=e.target.value;save();});
+document.querySelectorAll('input[name="ccc"]').forEach(r=>{r.checked=r.value===data.settings.ccc;r.addEventListener("change",()=>{data.settings.ccc=r.value;save();});});
+
+$("backupBtn").addEventListener("click",()=>{
+  download(`Catechism-in-a-Year-backup-${ymd(today())}.json`,JSON.stringify({app:"catechism-in-a-year",version:1,saved:new Date().toISOString(),data},null,1),"application/json");
+  $("dataStatus").textContent="Backup downloaded. Keep it somewhere safe.";
+});
+$("restoreIn").addEventListener("change",async e=>{
+  const f=e.target.files[0]; if(!f) return;
+  try{
+    const j=JSON.parse(await f.text()); const d=j.data||j;
+    if(!d||typeof d.done!=="object"||typeof d.notes!=="object") throw 0;
+    if(!confirm("Replace the progress and notes on this device with the backup?")) return;
+    data={done:d.done,notes:d.notes,settings:Object.assign({start:"",bible:"2015",bibleCustom:"",ccc:"web"},d.settings||{}),last:d.last||1};
+    save(); $("dataStatus").textContent="Backup restored."; startInfo(); $("bibleSel").value=data.settings.bible;
+  }catch(_){$("dataStatus").textContent="That file isn't a backup from this app.";}
+  e.target.value="";
+});
+$("resetBtn").addEventListener("click",()=>{
+  if(!confirm("Erase all progress and notes on this device? This can't be undone.")) return;
+  if(!confirm("Are you sure? Consider downloading a backup first.")) return;
+  data.done={}; data.notes={}; data.last=1; save(); $("dataStatus").textContent="Progress and notes erased.";
+});
+
+/* ---------- Calendar file ---------- */
+const enc=new TextEncoder();
+const icsEsc=t=>t.replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,").replace(/\n/g,"\\n");
+function fold(line){
+  if(enc.encode(line).length<=75) return line;
+  const out=[]; let cur="",bytes=0,limit=75;
+  for(const ch of line){const b=enc.encode(ch).length; if(bytes+b>limit){out.push(cur);cur="";bytes=0;limit=74;} cur+=ch; bytes+=b;}
+  out.push(cur); return out.join("\r\n ");
+}
+const compact=d=>ymd(d).replace(/-/g,"");
+function buildICS(s){
+  const stamp=new Date().toISOString().replace(/[-:]/g,"").replace(/\.\d+/,"");
+  const L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Catechism in a Year//App//EN","CALSCALE:GREGORIAN","METHOD:PUBLISH","X-WR-CALNAME:Catechism in a Year"];
+  PLAN.forEach(p=>{
+    const d=addDays(s,p.n-1); let title,desc;
+    if(p.r){title="Daily Catechism: Review & Catch-Up";
+      desc=`Day ${p.n} of 365 · Review & Catch-Up\n\nNo new reading today. Catch up on missed days, or reread the one that challenged you most.\n\nREVIEW QUESTION\n${p.q}`;}
+    else{title="Daily Catechism: "+p.t;
+      const scr=p.sc.map(g=>g.map(x=>x[0]).join(", ")).join("; ");
+      desc=`Day ${p.n} of 365 · ${phaseName(p)}\nRead: CCC ${p.c}\n${vatUrl(p.v[0][2])}\n\nKEY IDEA\n${p.k}\n\nWORD STUDY\n${p.w}\n\nSCRIPTURE\n${scr}\n\nECUMENICAL NOTE\n${p.ec}\n\nREFLECT\n${p.f}`;}
+    L.push("BEGIN:VEVENT",`UID:ccc-year-${compact(s)}-${String(p.n).padStart(3,"0")}@catechism-in-a-year`,`DTSTAMP:${stamp}`,
+      `DTSTART;VALUE=DATE:${compact(d)}`,`DTEND;VALUE=DATE:${compact(addDays(d,1))}`,"SUMMARY:"+icsEsc(title),"DESCRIPTION:"+icsEsc(desc),"TRANSP:TRANSPARENT","END:VEVENT");
+  });
+  L.push("END:VCALENDAR"); return L.map(fold).join("\r\n")+"\r\n";
+}
+$("icsDate").value=data.settings.start||ymd(today());
+$("icsBtn").addEventListener("click",()=>{
+  const v=$("icsDate").value||ymd(today()), s=parse(v);
+  try{download(`Catechism_in_a_Year_from_${v}.ics`,buildICS(s),"text/calendar;charset=utf-8");
+    $("icsStatus").textContent=`Calendar file created: Day 1 is ${fmt.format(s)}.`;}
+  catch(_){$("icsStatus").textContent="This browser couldn't create the file.";}
+});
+
+/* ---------- About ---------- */
+const aboutEl=$("about");
+function openAbout(push){
+  aboutEl.hidden=false; document.body.style.overflow="hidden"; aboutEl.scrollTop=0;
+  if(push!==false){try{history.pushState({about:1},"","#about");}catch(_){}}
+  $("aboutClose").focus({preventScroll:true});
+}
+function closeAbout(fromPop){
+  if(aboutEl.hidden) return;
+  aboutEl.hidden=true; document.body.style.overflow="";
+  if(!fromPop&&location.hash==="#about"){try{history.back();}catch(_){}}
+  $("infoBtn").focus({preventScroll:true});
+}
+$("infoBtn").addEventListener("click",()=>openAbout());
+$("footInfo").addEventListener("click",()=>openAbout());
+$("aboutClose").addEventListener("click",()=>closeAbout(false));
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!aboutEl.hidden) closeAbout(false);});
+window.addEventListener("popstate",()=>{ if(!aboutEl.hidden) closeAbout(true); });
+
+/* ---------- Tabs ---------- */
+const tabs=["today","plan","journal","settings"];
+function show(id,render){
+  if(!tabs.includes(id)) id="today";
+  document.querySelectorAll("section[data-tab]").forEach(s=>s.classList.toggle("on",s.dataset.tab===id));
+  document.querySelectorAll("nav.tabs a").forEach(a=>{ if(a.dataset.go===id) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
+  if(id==="plan") renderPlan();
+  if(id==="journal") renderJournal();
+  if(id==="settings") startInfo();
+  if(id==="today"&&render!==false) renderDay(view);
+  if(id!=="today"){try{history.replaceState(null,"","#"+id);}catch(_){}}
+}
+document.querySelectorAll("nav.tabs a").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();show(a.dataset.go);scrollTo(0,0);}));
+
+window.addEventListener("hashchange",()=>{
+  const h=location.hash.replace("#",""), m=h.match(/^day-(\d{1,3})$/);
+  if(m&&+m[1]!==view) openDay(+m[1]);
+  else if(tabs.includes(h)) show(h);
+});
+
+/* ---------- Start ---------- */
+(function init(){
+  const h=location.hash.replace("#","");
+  const m=h.match(/^day-(\d{1,3})$/);
+  view=m?+m[1]:defaultDay();
+  if(tabs.includes(h)&&h!=="today"){renderDay(view);show(h);} else show("today");
+  if(h==="about") openAbout(false);
+})();
+
+/* ---------- Offline ---------- */
+if("serviceWorker" in navigator && (location.protocol==="https:"||location.hostname==="localhost")){
+  window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
+}
+})();
+</script>
+</body>
+</html>
