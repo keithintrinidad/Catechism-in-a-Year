@@ -177,6 +177,9 @@ details.phase[open]>summary::after{content:"−"}
 .about .seal{text-align:center;color:var(--muted);font-style:italic;margin-top:2rem;font-size:.98rem}
 .about .seal+.seal{margin-top:.3rem;font-style:normal;color:var(--gilt)}
 
+.installbar{display:flex;flex-wrap:wrap;gap:.5rem .8rem;align-items:center;background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:.7rem .9rem;margin:.8rem 0 0}
+.installbar[hidden]{display:none}
+.installbar span{flex:1 1 12rem}
 /* Tabs */
 nav.tabs{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px);z-index:10}
 nav.tabs ul{list-style:none;margin:0 auto;padding:0;display:flex;max-width:36rem}
@@ -205,6 +208,11 @@ nav.tabs a:not([aria-current="page"])::before{content:"";display:block;height:2p
     </div>
   </div>
   <p>A daily reading through the Catechism of the Catholic Church, with notes, Scripture and space for your own thoughts.</p>
+  <div class="installbar" id="installBar" hidden>
+    <span>Install this app on your device for quick, offline access.</span>
+    <button class="btn primary" id="installBtn">Install</button>
+    <button class="linkbtn" id="installLater">Not now</button>
+  </div>
 </header>
 
 <!-- ============ TODAY ============ -->
@@ -658,6 +666,23 @@ window.addEventListener("hashchange",()=>{
   if(tabs.includes(h)&&h!=="today"){renderDay(view);show(h);} else show("today");
   if(h==="about") openAbout(false);
 })();
+
+/* ---------- Install button ---------- */
+let installEvt=null;
+const bar=$("installBar");
+window.addEventListener("beforeinstallprompt",e=>{
+  e.preventDefault(); installEvt=e;
+  let later=false; try{later=sessionStorage.getItem("ccc-install-later")==="1";}catch(_){}
+  if(!later) bar.hidden=false;
+});
+$("installBtn").addEventListener("click",async()=>{
+  if(!installEvt) return;
+  bar.hidden=true; installEvt.prompt();
+  try{await installEvt.userChoice;}catch(_){}
+  installEvt=null;
+});
+$("installLater").addEventListener("click",()=>{bar.hidden=true;try{sessionStorage.setItem("ccc-install-later","1");}catch(_){}});
+window.addEventListener("appinstalled",()=>{bar.hidden=true;installEvt=null;});
 
 /* ---------- Offline ---------- */
 if("serviceWorker" in navigator && (location.protocol==="https:"||location.hostname==="localhost")){

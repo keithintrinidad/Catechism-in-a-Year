@@ -1,6 +1,6 @@
 /* Catechism in a Year – service worker.
    Bump VERSION whenever any file changes so installed copies update. */
-const VERSION = "ccc-year-v3.1";
+const VERSION = "ccc-year-v3.2";
 const ASSETS = [
   "./",
   "index.html",
