@@ -1,6 +1,6 @@
 # Catechism in a Year – PWA
 
-**▶ Open the app: [keithintrinidad.github.io/Catechism-in-a-Year](https://keithintrinidad.github.io/Catechism-in-a-Year/)**. Use it in the browser, or install it on your phone (see [Installing on a phone](#installing-on-a-phone)).
+**▶ Open the app: [keithintrinidad.github.io/Catechism-in-one-Year](https://keithintrinidad.github.io/Catechism-in-one-Year/)**. Use it in the browser, or install it on your phone (see [Installing on a phone](#installing-on-a-phone)).
 
 A 365-day reading plan through the Catechism of the Catholic Church. Each day gives the paragraphs to read, with a link to that section of the Vatican's online text; a short study note; a word from Hebrew, Greek, Latin or Aramaic; the key Scripture passages, each linked to the YouVersion Bible app; a note on how Catholic teaching compares with Protestant and Anglican views; and a question for reflection. You can mark each day as read, keep your own notes, and read them all back in a journal. Every 30th day is a review day. It works offline once installed, and runs entirely in the browser as static files: no build step, no server code.
 
@@ -47,7 +47,7 @@ It is a companion to three other apps, made the same way:
 
 Upload the folder contents as-is to any static host that serves **HTTPS** (service workers require it). All paths are relative, so it works at a domain root or in a subfolder.
 
-- **GitHub Pages:** create the repository `Catechism-in-a-Year`, push the files to the repo root, then Settings → Pages → deploy from the `main` branch, root folder. The app will be live at [keithintrinidad.github.io/Catechism-in-a-Year](https://keithintrinidad.github.io/Catechism-in-a-Year/).
+- **GitHub Pages:** create the repository `Catechism-in-a-Year`, push the files to the repo root, then Settings → Pages → deploy from the `main` branch, root folder. The app will be live at [keithintrinidad.github.io/Catechism-in-one-Year](https://keithintrinidad.github.io/Catechism-in-one-Year/).
 - **Netlify:** drag the unzipped folder onto app.netlify.com/drop.
 - **Cloudflare Pages:** Create project → Direct upload → select the folder.
 
