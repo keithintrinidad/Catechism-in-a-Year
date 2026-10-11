@@ -26,7 +26,7 @@ It is a companion to three other apps, made the same way:
 |---|---|
 | `index.html` | The app (Today, Plan, Journal and Settings tabs, light/dark, About page with credits and licence) |
 | `data/plan.js` | The 365-day plan: titles, paragraph ranges, study notes, Scripture references and Vatican page links |
-| `manifest.webmanifest` | Name, colours and icons used when installed |
+| `app.webmanifest` | Name, colours, icons and the app's identity used when installed |
 | `sw.js` | Service worker: caches everything so the app works offline |
 | `icons/` | App icons (192, 512, maskable 512, Apple touch, favicon) |
 | `fonts/` | EB Garamond (Latin and Greek) and Frank Ruhl Libre (Hebrew), self-hosted (SIL OFL licences included) |
@@ -64,12 +64,12 @@ Progress, notes and settings are stored on each device only, in the browser's lo
 
 ## The app's identity
 
-`manifest.webmanifest` sets `"id": "catechism-in-a-year"`. Browsers resolve the id against the site's domain, so every app on keithintrinidad.github.io needs its own id; a relative id such as `"./"` would make all of them look like one app, and Android would say it is already installed. Don't change this id once people have installed the app, or their copy will be treated as a different app.
+`app.webmanifest` sets `"id": "catechism-in-a-year-app"`. Browsers resolve the id against the site's domain, so every app on keithintrinidad.github.io needs its own id; a relative id such as `"./"` would make all of them look like one app, and Android would say it is already installed. Don't change this id once people have installed the app, or their copy will be treated as a different app.
 
 ## Updating the app
 
 1. Edit `index.html` for the app itself, or `data/plan.js` for the plan and notes.
-2. In `sw.js`, change `VERSION` (e.g. `ccc-year-v2` → `ccc-year-v3`). Do this every release or installed copies may keep the old files.
+2. In `sw.js`, change `VERSION` (e.g. `ccc-year-v3` → `ccc-year-v4`). Do this every release or installed copies may keep the old files.
 3. Upload the changed files. Users get the update the next time they open the app while online.
 
 ## Testing locally

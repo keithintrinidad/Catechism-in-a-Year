@@ -1,10 +1,10 @@
 /* Catechism in a Year – service worker.
    Bump VERSION whenever any file changes so installed copies update. */
-const VERSION = "ccc-year-v2";
+const VERSION = "ccc-year-v3";
 const ASSETS = [
   "./",
   "index.html",
-  "manifest.webmanifest",
+  "app.webmanifest",
   "data/plan.js",
   "icons/apple-touch-icon.png",
   "icons/favicon-32.png",
