@@ -62,10 +62,14 @@ After the first visit the app works fully offline. The Catechism and Bible links
 
 Progress, notes and settings are stored on each device only, in the browser's local storage. Nothing is sent anywhere. Use *Download a backup* in Settings to keep a copy or move to a new phone, and *Copy all as text* in the Journal to keep your notes elsewhere.
 
+## The app's identity
+
+`manifest.webmanifest` sets `"id": "catechism-in-a-year"`. Browsers resolve the id against the site's domain, so every app on keithintrinidad.github.io needs its own id; a relative id such as `"./"` would make all of them look like one app, and Android would say it is already installed. Don't change this id once people have installed the app, or their copy will be treated as a different app.
+
 ## Updating the app
 
 1. Edit `index.html` for the app itself, or `data/plan.js` for the plan and notes.
-2. In `sw.js`, change `VERSION` (e.g. `ccc-year-v1` → `ccc-year-v2`). Do this every release or installed copies may keep the old files.
+2. In `sw.js`, change `VERSION` (e.g. `ccc-year-v2` → `ccc-year-v3`). Do this every release or installed copies may keep the old files.
 3. Upload the changed files. Users get the update the next time they open the app while online.
 
 ## Testing locally
