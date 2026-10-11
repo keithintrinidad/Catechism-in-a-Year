@@ -2,7 +2,7 @@
   "name": "Catechism in one Year",
   "short_name": "Catechism",
   "description": "A 365-day reading plan through the Catechism of the Catholic Church, with study notes, Scripture links and a personal journal.",
-    "id": "catechism-in-one-year",
+  "id": "catechism-in-one-year",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
